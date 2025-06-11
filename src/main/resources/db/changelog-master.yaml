@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: true
+      file: changelog/V1_001_09_06_2025_CREATE_WALLET_TABLE.sql
+  - include:
+      relativeToChangelogFile: true
+      file: changelog/V1_002_09_06_2025_CREATE_WALLET_OPERATION_TABLE.sql
