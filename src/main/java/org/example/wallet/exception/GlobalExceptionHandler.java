@@ -17,28 +17,28 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(WalletNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleWalletNotFoundException(WalletNotFoundException e) {
         Map<String, String> error = new HashMap<>();
-        error.put("error", e.getMessage());
+        error.put("WALLET_NOT_FOUND", e.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
     @ExceptionHandler(NotEnoughFundsException.class)
     public ResponseEntity<Map<String, String>> handleNotEnoughFundsException(NotEnoughFundsException e) {
         Map<String, String> error = new HashMap<>();
-        error.put("error", e.getMessage());
+        error.put("NOT_ENOUGH_FUNDS", e.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         Map<String, String> error = new HashMap<>();
-        error.put("error", e.getMessage());
+        error.put("INVALID_REQUEST", e.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, String>> handleGeneric(Exception e) {
         Map<String, String> error = new HashMap<>();
-        error.put("error", e.getMessage());
+        error.put("INTERNAL_SERVER_ERROR", e.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
 }
