@@ -1,7 +1,7 @@
 package org.example.wallet.model.dto;
 
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import org.example.wallet.dictionary.OperationType;
 
 import java.math.BigDecimal;
@@ -10,12 +10,16 @@ import java.util.UUID;
 /**
  * @author Anatoliy Shikin
  */
-public record WalletRequest(
+public record WalletRequestDto(
+
         @NotNull
-        UUID id,
+        UUID walletId,
+
         @NotNull
         OperationType operationType,
-        @Min(1)
+
+        @Positive
+        @NotNull
         BigDecimal amount
 ) {
 }

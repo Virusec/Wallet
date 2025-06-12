@@ -7,9 +7,12 @@ import java.util.UUID;
 /**
  * @author Anatoliy Shikin
  */
-public record WalletDto(
+public record WalletResponseDto(
+
         UUID id,
+
         BigDecimal balance,
+
         ZonedDateTime registrationDate
 ) {
 }
