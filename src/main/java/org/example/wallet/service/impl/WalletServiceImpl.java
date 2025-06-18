@@ -73,7 +73,8 @@ public class WalletServiceImpl implements WalletService {
     @Override
     @Transactional(readOnly = true)
     public WalletResponseDto getBalance(UUID id) {
-        Wallet wallet = getWalletOrThrowException(id);
+        Wallet wallet = walletRepository.findById(id)
+                .orElseThrow(() -> new WalletNotFoundException(id));
         return walletMapper.toDto(wallet);
     }
 
